@@ -3,6 +3,7 @@ from .models import Flight, Passenger, Reservation
 from django.contrib.auth.models import User
 from rest_framework.authtoken.views import Token
 
+
 class FlightSerializer(serializers.ModelSerializer):
  class Meta:
   model = Flight
@@ -38,3 +39,8 @@ class UserSerializer(serializers.ModelSerializer):
   Token.objects.create(user=user)
   return user
   
+class RegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username','email','password']
+# user ile islem yapmak icin bu serializers olusturuldu
